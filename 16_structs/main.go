@@ -5,12 +5,18 @@ import (
 	"time"
 )
 
+type customer struct { //embedding struct
+	name  string
+	phone string
+}
+
 // order struct
 type order struct {
 	id        string
 	amount    float32
 	status    string
 	createdAt time.Time // nanosecond precision
+	customer            //embedding struct
 }
 
 func newOrder(id string, amount float32, status string, createdAt time.Time) *order {
@@ -43,6 +49,10 @@ func main() {
 		id:     "123",
 		amount: 12.00,
 		status: "Pending",
+		customer: customer{ //embedding struct
+			name:  "Avish",
+			phone: "+91 9925698765",
+		},
 	}
 	myOrder2 := newOrder("1234", 134, "paid", time.Now())
 	myOrder.changeStatus("Accepted")
