@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 //you can add multiple generic types
-func printSlice[T comparable, V string](items []T) { // [T any ] , [T interface{}]      or use like       [T string | int]
+func printSlice[T comparable, V string](items []T) {
+	// [T any ] , [T interface{}]      or use like       [T string | int]
 	for _, item := range items {
 		fmt.Println(item)
 	}
